@@ -1,7 +1,7 @@
 "use client";
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { LayoutDashboard, ShoppingBag, Settings, LogOut, UserCircle, Sparkles } from 'lucide-react';
 
 export default function DashboardLayout({
