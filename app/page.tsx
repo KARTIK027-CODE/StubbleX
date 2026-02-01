@@ -9,42 +9,50 @@ export default function Home() {
     return (
         <main className="min-h-screen flex flex-col bg-[#FDFBF7] relative overflow-hidden">
             <ThreeDBackground />
-            {/* Navbar */}
-            <nav className="w-full flex justify-between items-center px-8 py-6 bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-earth-100">
-                <div className="flex items-center gap-2">
-                    <div className="bg-earth-500 p-2 rounded-lg text-white shadow-lg shadow-earth-500/30">
-                        <Recycle size={24} />
-                    </div>
-                    <span className="text-xl font-bold tracking-tight text-earth-800">StubbleX</span>
-                </div>
-                <div className="hidden md:flex gap-8 text-earth-600 font-medium">
-                    <Link href="/how-it-works" className="hover:text-earth-900 transition-colors">How it Works</Link>
-                    <Link href="/about" className="hover:text-earth-900 transition-colors">Impact</Link>
-                    <Link href="/dashboard/buyer" className="hover:text-earth-900 transition-colors">Marketplace</Link>
-                </div>
-                <div className="flex gap-4">
-                    <Link href="/login" className="px-5 py-2 rounded-full border border-earth-200 hover:bg-earth-50 transition-colors font-medium">Log in</Link>
-                    <Link href="/register" className="px-5 py-2 rounded-full bg-earth-800 text-white hover:bg-earth-900 transition-colors font-medium shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-200">
-                        Get Started
-                    </Link>
-                </div>
-            </nav>
+            {/* Navbar - Floating Glass Pill */}
+            <div className="fixed top-6 left-0 right-0 flex justify-center z-50 px-4">
+                <nav className="flex items-center gap-2 p-2 pl-6 pr-3 bg-white/70 backdrop-blur-xl border border-white/20 rounded-full shadow-xl shadow-earth-900/5">
 
-            {/* Hero Section */}
-            <section className="relative pt-20 pb-32 px-6 flex flex-col items-center text-center overflow-hidden min-h-[85vh] justify-center">
+                    {/* Logo Section */}
+                    <div className="flex items-center gap-2 mr-6">
+                        <div className="bg-earth-600 rounded-full p-1.5 text-white">
+                            <Recycle size={18} />
+                        </div>
+                        <span className="text-lg font-bold tracking-tight text-earth-900">StubbleX</span>
+                    </div>
+
+                    {/* Links - Hidden on mobile */}
+                    <div className="hidden md:flex items-center gap-1 mr-2">
+                        <Link href="/how-it-works" className="px-4 py-2 rounded-full text-sm font-medium text-sand-600 hover:text-earth-900 hover:bg-white/50 transition-all">How it Works</Link>
+                        <Link href="/about" className="px-4 py-2 rounded-full text-sm font-medium text-sand-600 hover:text-earth-900 hover:bg-white/50 transition-all">Impact</Link>
+                        <Link href="/dashboard/buyer" className="px-4 py-2 rounded-full text-sm font-medium text-sand-600 hover:text-earth-900 hover:bg-white/50 transition-all">Marketplace</Link>
+                    </div>
+
+                    {/* Actions */}
+                    <div className="flex items-center gap-2 pl-4 border-l border-sand-200">
+                        <Link href="/login" className="px-5 py-2 rounded-full text-sm font-semibold text-earth-700 hover:bg-earth-50 transition-colors">Log in</Link>
+                        <Link href="/register" className="px-5 py-2.5 rounded-full bg-earth-900 text-white text-sm font-semibold hover:bg-black transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+                            Get Started
+                        </Link>
+                    </div>
+                </nav>
+            </div>
+
+            {/* Hero Section - Increased top padding to prevent badge overlap */}
+            <section className="relative pt-40 pb-32 px-6 flex flex-col items-center text-center overflow-hidden min-h-[85vh] justify-center">
 
                 {/* 3D Animated Hero */}
                 <div className="relative perspective-1000 w-full max-w-5xl">
                     <div className="relative z-10 transform-style-3d hover:rotate-y-2 transition-transform duration-700 ease-out">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-sm border border-white/40 text-earth-800 text-sm font-medium mb-8 shadow-sm animate-float">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/60 backdrop-blur-sm border border-white/40 text-earth-800 text-sm font-medium mb-12 shadow-sm animate-float">
                             <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                            Live Marketplace for Biomass
+                            Live Biomass Marketplace
                         </div>
 
                         <h1 className="text-6xl md:text-8xl font-black text-earth-900 tracking-tighter mb-8 leading-[0.9]">
-                            Don't Burn. <br />
+                            Convert Crop Waste<br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-600 to-earth-600 relative">
-                                Earn.
+                                Into Cash.
                                 <svg className="absolute w-full h-4 -bottom-2 left-0 text-yellow-500/50" viewBox="0 0 100 10" preserveAspectRatio="none">
                                     <path d="M0 5 Q 50 15 100 5" stroke="currentColor" strokeWidth="8" fill="none" />
                                 </svg>
@@ -52,8 +60,8 @@ export default function Home() {
                         </h1>
 
                         <p className="text-xl md:text-2xl text-earth-700 max-w-xl mx-auto mb-12 font-medium leading-relaxed">
-                            StubbleX turns crop waste into cash. <br />
-                            <span className="opacity-70">Farmers sell. Industries buy. Nature wins.</span>
+                            Stop burning. Start earning. <br />
+                            <span className="opacity-70">Connects farmers directly to industries.</span>
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-5 w-full justify-center perspective-500">

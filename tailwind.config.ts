@@ -10,30 +10,30 @@ const config: Config = {
         extend: {
             colors: {
                 earth: {
-                    50: '#ecfdf5', // emerald-50
-                    100: '#d1fae5', // emerald-100
-                    200: '#a7f3d0', // emerald-200
-                    300: '#6ee7b7', // emerald-300
-                    400: '#34d399', // emerald-400
-                    500: '#10b981', // emerald-500 (Primary)
-                    600: '#059669', // emerald-600
-                    700: '#047857', // emerald-700
-                    800: '#065f46', // emerald-800
-                    900: '#064e3b', // emerald-900
-                    950: '#022c22', // emerald-950
+                    50: '#f0fdfa', // teal-50
+                    100: '#ccfbf1', // teal-100
+                    200: '#99f6e4', // teal-200
+                    300: '#5eead4', // teal-300
+                    400: '#2dd4bf', // teal-400
+                    500: '#14b8a6', // teal-500
+                    600: '#0d9488', // teal-600 (Primary)
+                    700: '#0f766e', // teal-700
+                    800: '#115e59', // teal-800
+                    900: '#134e4a', // teal-900
+                    950: '#042f2e', // teal-950
                 },
                 sand: {
-                    50: '#f8fafc', // slate-50
-                    100: '#f1f5f9', // slate-100
-                    200: '#e2e8f0', // slate-200
-                    300: '#cbd5e1', // slate-300
-                    400: '#94a3b8', // slate-400
-                    500: '#64748b', // slate-500
-                    600: '#475569', // slate-600
-                    700: '#334155', // slate-700
-                    800: '#1e293b', // slate-800
-                    900: '#0f172a', // slate-900
-                    950: '#020617', // slate-950
+                    50: '#fafafa', // stone-50
+                    100: '#f5f5f4', // stone-100
+                    200: '#e7e5e4', // stone-200
+                    300: '#d6d3d1', // stone-300
+                    400: '#a8a29e', // stone-400
+                    500: '#78716c', // stone-500
+                    600: '#57534e', // stone-600 (Text)
+                    700: '#44403c', // stone-700
+                    800: '#292524', // stone-800
+                    900: '#1c1917', // stone-900
+                    950: '#0c0a09', // stone-950
                 }
             }
         },
