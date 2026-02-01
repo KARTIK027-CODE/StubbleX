@@ -1,71 +1,39 @@
-# Deployment Guide for StubbleX
+# StubbleX Deployment Guide 🚀
 
-This guide will help you host your application for **free** and **permanently**.
+Follow these steps exactly to deploy your StubbleX app to Render.
 
-Since your application uses a Next.js Frontend and a Python AI Backend (TensorFlow), we will use two specialized free hosting providers:
+## 1. Deploy the Backend (Python) first 🐍
+*This creates the API that your frontend will talk to.*
 
-1.  **Frontend**: **Vercel** (Creators of Next.js, best performance).
-2.  **Backend**: **Render** (Excellent support for Python/Docker/ML models).
+1.  Click **New +** -> **Web Service**.
+2.  Connect your GitHub repo: `StubbleX`.
+3.  **Name**: `stubblex-backend`
+4.  **Language**: `Python 3`
+5.  **Root Directory**: `backend`
+6.  **Build Command**: `echo "No dependencies"`
+7.  **Start Command**: `python simple_server.py`
+8.  Click **Create Web Service**.
+9.  **COPY THE URL** assigned to this service (e.g., `https://stubblex-backend.onrender.com`). You need it for step 2.
 
----
+## 2. Deploy the Frontend (Next.js) ⚡
+*This is the website users will see.*
 
-## Prerequisites
-
-Ensure your latest code is pushed to GitHub.
-```bash
-git add .
-git commit -m "Prepare for deployment: Update CORS and API URLs"
-git push origin main
-```
-*(If you are not on the main branch, make sure to push the branch you want to deploy)*
-
----
-
-## Step 1: Deploy Backend (Render)
-
-1.  Go to [dashboard.render.com](https://dashboard.render.com/) and create a free account.
-2.  Click **New +** and select **Web Service**.
-3.  Connect your GitHub account and select the **StubbleX** repository.
-4.  Configure the service with the following settings:
-    *   **Name**: `stubblex-backend` (or similar)
-    *   **Region**: Closest to you (e.g., Singapore or Frankfurt)
-    *   **Branch**: `main` (or your working branch)
-    *   **Root Directory**: `backend`  <-- **IMPORTANT**
-    *   **Runtime**: `Python 3`
-    *   **Build Command**: `pip install -r requirements.txt`
-    *   **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
-    *   **Instance Type**: Free
-5.  Scroll down to **Environment Variables** and add:
-    *   `Key`: `USE_ML_MODEL`
-    *   `Value`: `1` (To enable the AI)
-    *   `Key`: `PYTHON_VERSION`
-    *   `Value`: `3.9.0` (Recommended)
-6.  Click **Create Web Service**.
-
-**Wait for deployment to finish.**
-Once deployed, copy the **onrender.com URL** (e.g., `https://stubblex-backend.onrender.com`). You will need this for the frontend.
-
----
-
-## Step 2: Deploy Frontend (Vercel)
-
-1.  Go to [vercel.com](https://vercel.com/) and create a free account.
-2.  Click **Add New...** -> **Project**.
-3.  Import the **StubbleX** repository.
-4.  Configure the project:
-    *   **Framework Preset**: Next.js (Default)
-    *   **Root Directory**: `./` (Default)
-5.  Expand **Environment Variables** and add:
-    *   `Key`: `NEXT_PUBLIC_API_URL`
-    *   `Value`: `https://stubblex-backend.onrender.com` (Paste the URL from Step 1)
+1.  Click **New +** -> **Web Service**.
+2.  Connect your GitHub repo: `StubbleX`.
+3.  **Name**: `stubblex-frontend`
+4.  **Language**: `Node` (or `Docker` if preferred, but Node is fine).
+5.  **Root Directory**: leave empty (defaults to root).
+6.  **Build Command**: `npm install; npm run build`
+7.  **Start Command**: `npm run start`
+8.  **Environment Variables** (Crucial Step!):
+    *   Find the **"Environment Variables"** section.
+    *   Click **"Add Environment Variable"**.
+    *   **Key**: `NEXT_PUBLIC_API_URL`
+    *   **Value**: Paste the Backend URL from Step 1 (e.g., `https://stubblex-backend.onrender.com`).
     *   *Note: Do not add a trailing slash `/` at the end.*
-6.  Click **Deploy**.
+9.  Click **Create Web Service**.
 
 ---
 
-## Success!
-
-Vercel will build your frontend and verify it. Once done, you will get a permanent URL (e.g., `agri-loop.vercel.app`).
-Your app is now live!
-- **Frontend** runs on Vercel's Edge Network.
-- **Backend** runs on Render's Cloud.
+## ✅ Success!
+Your StubbleX app will be live at the URL provided by the Frontend service.

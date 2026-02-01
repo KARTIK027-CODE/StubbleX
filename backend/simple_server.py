@@ -3,7 +3,8 @@ import socketserver
 import json
 import random
 
-PORT = 8081
+import os
+PORT = int(os.environ.get("PORT", 8081))
 OTP_STORE = {}
 
 class MyHandler(http.server.SimpleHTTPRequestHandler):

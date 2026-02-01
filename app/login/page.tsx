@@ -33,7 +33,7 @@ function LoginForm() {
         setMessage("");
 
         try {
-            const apiUrl = 'http://127.0.0.1:8081'; // Force 127.0.0.1:8081
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8081';
             console.log(`Sending OTP request to: ${apiUrl}/api/send-otp`);
 
             const res = await fetch(`${apiUrl}/api/send-otp`, {
@@ -63,7 +63,7 @@ function LoginForm() {
         setLoading(true);
 
         try {
-            const apiUrl = 'http://127.0.0.1:8081';
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8081';
             const res = await fetch(`${apiUrl}/api/verify-otp`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
