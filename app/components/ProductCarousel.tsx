@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { TiltCard } from "./TiltCard";
 
 const products = [
     {
@@ -66,25 +67,29 @@ export const ProductCarousel = () => {
                     }}
                 >
                     {carouselItems.map((item, index) => (
-                        <div
-                            key={index}
-                            className="group relative rounded-2xl overflow-hidden aspect-[4/5] shadow-xl flex-shrink-0 w-[280px] md:w-[320px] cursor-pointer"
-                        >
-                            <img
-                                src={item.img}
-                                alt={item.title}
-                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                            />
-                            {/* Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent flex flex-col justify-end p-6">
-                                <h3 className="text-xl font-bold text-white mb-2 translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                                    {item.title}
-                                </h3>
-                                <p className="text-earth-200 text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 translate-y-4 group-hover:translate-y-0 delay-75">
-                                    {item.desc}
-                                </p>
+                        <TiltCard key={index} className="flex-shrink-0" rotationFactor={10} perspective={800}>
+                            <div
+                                className="group relative rounded-2xl overflow-hidden aspect-[4/5] shadow-xl w-[280px] md:w-[320px] cursor-pointer"
+                            >
+                                <img
+                                    src={item.img}
+                                    alt={item.title}
+                                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                />
+                                {/* Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent flex flex-col justify-end p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+                                    <h3 className="text-xl font-bold text-white mb-2 transform group-hover:-translate-y-1 transition-transform duration-500">
+                                        {item.title}
+                                    </h3>
+                                    <div className="overflow-hidden max-h-0 group-hover:max-h-48 transition-all duration-500 ease-out">
+                                        <p className="text-gray-200 text-sm leading-relaxed pb-2">
+                                            {item.desc}
+                                        </p>
+                                    </div>
+                                    <div className="w-full h-1 bg-green-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left mt-2"></div>
+                                </div>
                             </div>
-                        </div>
+                        </TiltCard>
                     ))}
                 </motion.div>
             </div>

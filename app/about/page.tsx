@@ -1,6 +1,7 @@
 "use client";
 import Link from 'next/link';
 import { ArrowLeft, Leaf, Recycle, Globe } from 'lucide-react';
+import { Footer } from '../components/Footer';
 
 export default function AboutPage() {
     return (
@@ -48,6 +49,7 @@ export default function AboutPage() {
                     </div>
                 </div>
             </section>
+            <Footer />
         </main>
     )
 }

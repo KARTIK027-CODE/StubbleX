@@ -200,7 +200,52 @@ async def classify_waste_top_k(file: UploadFile = File(...), k: int = 3):
             detail=f"Error processing image: {str(e)}"
         )
 
-@app.get("/api/health")
+
+@app.get("/api/leaderboard")
+async def get_leaderboard():
+    """
+    Returns the top farmers ranked by Green Score.
+    Mock data for demo.
+    """
+    return {
+        "leaderboard": [
+            {
+                "id": "farmer-1",
+                "rank": 1, "name": "Rajesh Kumar", "location": "Punjab",
+                "green_score": 950, "co2_saved": "12.5 Tons", "waste_recycled": "45 Tons", "badge": "Eco-Warrior"
+            },
+            {
+                "id": "farmer-2",
+                "rank": 2, "name": "Sunita Devi", "location": "Haryana",
+                "green_score": 880, "co2_saved": "10.2 Tons", "waste_recycled": "38 Tons", "badge": "Soil Guardian"
+            },
+            {
+                "id": "farmer-3",
+                "rank": 3, "name": "Vikram Singh", "location": "UP",
+                "green_score": 820, "co2_saved": "9.1 Tons", "waste_recycled": "32 Tons", "badge": "Green Hero"
+            },
+            {
+                "id": "farmer-4",
+                "rank": 4, "name": "Amandeep Singh", "location": "Punjab",
+                "green_score": 750, "co2_saved": "8.0 Tons", "waste_recycled": "28 Tons", "badge": "Earth Saver"
+            },
+            {
+                "id": "farmer-5",
+                "rank": 5, "name": "Meera Reddy", "location": "Telangana",
+                "green_score": 710, "co2_saved": "7.5 Tons", "waste_recycled": "25 Tons", "badge": "Nature Friend"
+            },
+            {
+                "id": "farmer-6",
+                "rank": 6, "name": "Ramesh Patel", "location": "Gujarat",
+                "green_score": 680, "co2_saved": "6.8 Tons", "waste_recycled": "22 Tons", "badge": "Sustainability Star"
+            }
+        ],
+        "user_rank": {
+            "id": "current-user",
+            "rank": 142, "name": "You", "green_score": 320,
+            "co2_saved": "2.1 Tons", "waste_recycled": "8 Tons"
+        }
+    }
 async def health_check():
     return {
         "status": "healthy",

@@ -10,7 +10,7 @@ Follow these steps exactly to deploy your StubbleX app to Render.
 3.  **Name**: `stubblex-backend`
 4.  **Language**: `Python 3`
 5.  **Root Directory**: `backend`
-6.  **Build Command**: `echo "No dependencies"`
+6.  **Build Command**: `echo Done` (Avoid using quotes to prevent syntax errors)
 7.  **Start Command**: `python simple_server.py`
 8.  Click **Create Web Service**.
 9.  **COPY THE URL** assigned to this service (e.g., `https://stubblex-backend.onrender.com`). You need it for step 2.

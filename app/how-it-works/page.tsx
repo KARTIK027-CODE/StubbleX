@@ -1,6 +1,7 @@
 "use client";
 import Link from 'next/link';
 import { ArrowLeft, Upload, Search, Truck, CheckCircle } from 'lucide-react';
+import { Footer } from '../components/Footer';
 
 export default function HowItWorksPage() {
     return (
@@ -64,6 +65,7 @@ export default function HowItWorksPage() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </main>
     )
 }

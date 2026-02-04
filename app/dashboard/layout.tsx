@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { LayoutDashboard, ShoppingBag, Settings, LogOut, UserCircle, Sparkles } from 'lucide-react';
+import { LayoutDashboard, ShoppingBag, Settings, LogOut, UserCircle, Sparkles, Trophy } from 'lucide-react';
 
 export default function DashboardLayout({
     children,
@@ -18,6 +18,7 @@ export default function DashboardLayout({
             { name: 'Overview', href: '/dashboard/farmer', icon: LayoutDashboard },
             { name: 'My Listings', href: '/dashboard/farmer/listings', icon: ShoppingBag },
             { name: 'AI Waste Classification', href: '/dashboard/farmer/classify-waste', icon: Sparkles },
+            { name: 'Leaderboard', href: '/dashboard/farmer/leaderboard', icon: Trophy },
             { name: 'Profile', href: '/dashboard/farmer/profile', icon: UserCircle },
         ]
         : [

@@ -8,7 +8,7 @@ import numpy as np
 from PIL import Image
 import io
 from typing import Dict
-from reuse_suggestions import ReuseSuggestions
+from .reuse_suggestions import ReuseSuggestions
 
 
 class SimpleWasteClassifier:
